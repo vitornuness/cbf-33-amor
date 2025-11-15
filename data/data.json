@@ -1,0 +1,83 @@
+[
+  {
+    "dia":      "2025-11-27",
+    "periodos": [
+      {
+        "periodo":        "Manhã",
+        "apresentacoes":  [
+          {
+            "inicio":     "09:45",
+            "fim":        "11:15",
+            "sala":       "Alimentação e Deglutição da Infância",
+            "titulo":     "A atualização do Diagnóstico - DAP"
+          }
+        ]
+      },
+      {
+        "periodo":        "Tarde",
+        "apresentacoes":  [
+          {
+            "inicio":     "15:30",
+            "fim":        "17:00",
+            "sala":       "Saúde Coletiva", 
+            "titulo":     "eMulti como campo de formação em Fonoaudiologia"
+          },
+          {
+            "inicio":     "17:45",
+            "fim":        "18:25",
+            "sala":       "Transtorno do Espectro do Autismo", 
+            "titulo":     "TEA e ensino superior: desafios, escutas e conquistas"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dia":      "2025-11-28",
+    "periodos": [
+      {
+        "periodo":        "Manhã",
+        "apresentacoes":  [
+          {
+            "inicio":     "08:00",
+            "fim":        "09:30",
+            "sala":       "Nada sobre nós sem nós",
+            "titulo":     "Mães atípicas: maternidade, cuidado e atravessamentos na clínica e na academia"
+          }, 
+          {
+            "inicio":     "09:45",
+            "fim":        "10:45",
+            "sala":       "Nada sobre nós sem nós",
+            "titulo":     "Assédio nos ambientes institucionais: enfrentamento e acolhimento"
+          }, 
+          {
+            "inicio":     "11:45",
+            "fim":        "12:25",
+            "sala":       "Saúde Coletiva",
+            "titulo":     "Advocacy em saúde pelo olhar de quem vive: o paciente"
+          }
+        ]
+      },
+      {
+        "periodo":        "Tarde",
+        "apresentacoes":  [
+          {
+            "inicio":     "15:15",
+            "fim":        "16:45",
+            "sala":       "Saúde Coletiva", 
+            "titulo":     "Triagem neonatal no SUS: problemas de acesso, formação profissional e continuidade do cuidado"
+          },
+          {
+            "inicio":     "17:00",
+            "fim":        "18:30",
+            "sala":       "Tenda da Saúde Coletiva", 
+            "titulo":     "Saberes de povos originários e quilombolas e o cuidado no SUS: diálogos possíveis?"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "dia":      "2025-11-29"
+  }
+]
