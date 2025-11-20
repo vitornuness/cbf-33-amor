@@ -1,11 +1,17 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { onMounted } from 'vue';
+import Hero from './components/Hero.vue';
+import { usePalestrasStore } from './pinia/palestras';
+
+const palestrasStore = usePalestrasStore();
+
+onMounted( () => palestrasStore.carregarPalestras() );
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <main class="container" style="max-width: 600px;">
+    <Hero />
+  </main>
 </template>
 
 <style scoped></style>
