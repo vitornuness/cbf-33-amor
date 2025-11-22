@@ -66,7 +66,10 @@ const proximaPalestra = computed(() => palestrasStore.proxima);
             </div>
 
             <div class="col-12">
-                <button type="button" class="btn btn-primary w-100 rounded-pill" disabled>Programação completa</button>
+                <RouterLink to="/palestras" 
+                    type="button" 
+                    class="btn btn-lg btn-primary w-100 rounded-pill" 
+                >Programação completa</RouterLink>
             </div>
         </div>
     </div>
