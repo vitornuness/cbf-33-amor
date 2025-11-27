@@ -6,7 +6,11 @@ import { RouterLink } from 'vue-router';
 const palestrasStore = usePalestrasStore();
 
 const palestras = computed(() => palestrasStore.organizadasEmDias);
-const diaSelecionado = ref<string>((new Date).toLocaleTimeString('pt-BR', { timeStyle: 'short' }));
+const diaSelecionado = ref<string>((new Date).toLocaleDateString('pt-BR', { dateStyle: 'short' }));
+
+function selecionarDia(dia: string) {
+    diaSelecionado.value = dia ?? '';
+}
 </script>
 
 <template>
@@ -33,7 +37,7 @@ const diaSelecionado = ref<string>((new Date).toLocaleTimeString('pt-BR', { time
             <button v-for="(palestrasDia, dia) in palestras"
                 type="button"
                 class="btn btn-lg btn-outline-primary col-auto p-2" 
-                :onclick="() => diaSelecionado = dia ?? ''" 
+                :onclick="() => selecionarDia(dia)" 
             >{{ dia.split('/')[0] }}</button>
         </div>
             <div v-if="palestras[diaSelecionado] === undefined"
@@ -43,68 +47,40 @@ const diaSelecionado = ref<string>((new Date).toLocaleTimeString('pt-BR', { time
                 Selecione um dos dias acima. 
             </div>
             <div v-else 
-                id="carouselPalestras" 
-                class="carousel slide"
+                class="overflow-x-auto w-100 d-flex flex-nowrap w-100 gap-2" 
+                style="scroll-snap-type: x mandatory; scroll-behavior: smooth;"
             >
-                <div class="carousel-indicators">
-                    <button v-for="(palestra, index) in palestras[diaSelecionado] ?? []" 
-                        type="button" 
-                        data-bs-target="#carouselPalestras" 
-                        :data-bs-slide-to="index" 
-                        :class="(index === 0 ? 'active' : '')" 
-                        class="bg-primary" 
-                        :aria-current="index === 0" 
-                        :aria-label="palestra.titulo" 
-                        :key="index"
-                    ></button>
-                </div>
-                <div class="carousel-inner border rounded-4">
-                    <div v-for="(palestra, index) in palestras[diaSelecionado]" 
-                        class="carousel-item" 
-                        :class="(index === 0 ? 'active' : '')" 
-                        :key="index"
-                    >
-                        <div class="card border-0" style="height: 60vh;">
-                            <div class="card-header border-0 bg-body">
-                                <div class="d-flex flex-column">
-                                    <div
-                                        class="w-100 text-end"
-                                    >
-                                        <span class="text-white p-1 rounded" 
-                                            :class="(ehPalestraAtual(palestra)) ? 'bg-primary ' : 'bg-body'"
-                                            style="font-size: 0.75rem;"
-                                        >Agora</span>
-                                    </div>
-                                    <h5 :class="(ehPalestraAtual(palestra) ? 'text-primary' : '')">
-                                        {{ palestra.sala }}
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h2>{{ palestra.titulo }}</h2>
-                            </div>
-                            <div class="card-footer border-0 pb-5 bg-body">
-                                <p class="w-100 text-end">
-                                    {{
-                                        palestra!.inicio.toLocaleDateString()
-                                        + ' '
-                                        + palestra!.inicio.toLocaleTimeString('pt-BR', { timeStyle: 'short' })
-                                        + ' - '
-                                        + palestra!.fim.toLocaleTimeString('pt-BR', { timeStyle: 'short' })
-                                    }}
-                                </p>
-                            </div>
+                <div v-for="palestra in palestras[diaSelecionado]"
+                    class="card" 
+                    :class="(ehPalestraAtual(palestra) ? 'border-2 border-primary' : '')"
+                    style="min-width: 280px; min-height: 420px; scroll-snap-align: start;"
+                >
+                    <div class="card-header bg-body border-0"> 
+                        <div class="w-100 text-end">
+                            <span class="text-white px-2 py-1 rounded" 
+                                :class="(ehPalestraAtual(palestra) ? 'bg-primary ' : '')"
+                                style="font-size: 0.75rem;"
+                            >Agora</span>
                         </div>
+                        <h5 class="card-title mt-2"
+                            :class="(ehPalestraAtual(palestra) ? 'text-primary' : '')"
+                        >{{ palestra.sala }}</h5>
+                    </div>
+                    <div class="card-body">
+                        <h3>{{ palestra.titulo }}</h3>
+                    </div>
+                    <div class="card-footer bg-body border-0">
+                        <p class="text-end">
+                            {{ 
+                                palestra.inicio.toLocaleDateString('pt-br', { dateStyle: 'short' }) 
+                                + ' ' 
+                                + palestra.inicio.toLocaleTimeString('pt-br', { timeStyle: 'short' }) 
+                                + ' - ' 
+                                + palestra.fim.toLocaleTimeString('pt-br', { timeStyle: 'short' })
+                            }}
+                        </p>
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselPalestras" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselPalestras" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
         </div>
     </section>
