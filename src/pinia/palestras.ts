@@ -50,7 +50,7 @@ export const usePalestrasStore = defineStore('palestras', {
 export function ehPalestraAtual(palestra: Palestra): boolean 
 {
     const dataHoraAtual = new Date();
-    // const dataHoraAtual = new Date('2025-11-29 09:10:00');
+    // const dataHoraAtual = new Date('2025-11-27 17:45:00');
 
     return dataHoraAtual >= palestra.inicio 
         && dataHoraAtual <= palestra.fim;
@@ -59,7 +59,6 @@ export function ehPalestraAtual(palestra: Palestra): boolean
 export function ehProximaPalestra(palestra: Palestra): boolean 
 {
     const dataHoraAtual = new Date();
-    // const dataHoraAtual = new Date('2025-11-29 09:10:00');
 
     return dataHoraAtual < palestra.inicio 
         && dataHoraAtual < palestra.fim;
