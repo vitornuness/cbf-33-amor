@@ -1,3 +1,33 @@
 * {
     font-family: 'Varela Round', sans-serif;
+
+    --bs-body-bg: #C390A3;
+    --bs-body-bg-rgb: 195, 144, 163;
+    --bs-body-color: #FEFDFD;
+    --bs-body-color-rgb: 254, 253, 253;
+    --bs-primary: #4E343F;
+    --bs-primary-rgb: 78, 52, 63;
+}
+
+.btn-primary {
+    --bs-btn-bg: #4E343F;
+    --bs-btn-border-color: #4E343F;
+    --bs-btn-hover-bg: #402832;
+    --bs-btn-hover-border-color: #402832;
+    --bs-btn-active-bg: #63394a;
+    --bs-btn-active-border-color: #63394a;   
+}
+
+.btn-outline-primary {
+    --bs-btn-color: #4E343F;
+    --bs-btn-border-color: #4E343F;
+    --bs-btn-hover-color: var(--bs-body-color);
+    --bs-btn-hover-bg: #4E343F;
+    --bs-btn-hover-border-color: #4E343F;
+    --bs-btn-active-bg: #402832;
+    --bs-btn-active-border-color: #402832;
+}
+
+.btn-link {
+    --bs-btn-color: #4E343F;
 }
