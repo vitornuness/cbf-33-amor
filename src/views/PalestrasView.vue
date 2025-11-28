@@ -57,9 +57,9 @@ function selecionarDia(dia: string) {
                 >
                     <div class="card-header bg-body border-0"> 
                         <div class="w-100 text-end">
-                            <span class="text-white px-2 py-1 rounded" 
+                            <span class="px-2 py-1 rounded" 
                                 :class="(ehPalestraAtual(palestra) ? 'bg-primary ' : '')"
-                                style="font-size: 0.75rem;"
+                                style="font-size: 0.75rem; color: var(--bs-body-bg);"
                             >Agora</span>
                         </div>
                         <h5 class="card-title mt-2"

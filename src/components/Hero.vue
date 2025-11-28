@@ -16,7 +16,7 @@ const proximaPalestra = computed(() => palestrasStore.proxima);
             <p>Nenhuma palestra</p>
         </div>
         <div v-else class="row gap-3 pt-4">
-            <div class="col-12 gap-1">
+            <div class="col-12 gap-1 card">
                 <div class="my-1 text-end">
                     <span style="font-size: 0.75rem;" 
                         class="fw-bold bg-primary text-light rounded p-1 px-2 w-auto"
@@ -42,7 +42,7 @@ const proximaPalestra = computed(() => palestrasStore.proxima);
 
             <hr class="border-primary border-2 rounded w-75 mx-auto">
 
-            <div class="col-12 gap-1">
+            <div class="col-12 gap-1 card">
                 <div class="my-1 text-end">
                     <span style="font-size: 0.75rem;" 
                         class="fw-bold text-primary rounded p-1 px-2 w-auto"
